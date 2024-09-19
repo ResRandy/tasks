@@ -8,6 +8,7 @@ import { Question, QuestionType } from "./interfaces/question";
 export function makeBlankQuestion(
     id: number,
     name: string,
+<<<<<<< HEAD
     type: QuestionType,
 ): Question {
     return {
@@ -20,6 +21,11 @@ export function makeBlankQuestion(
         expected: "",
         points: 1,
     };
+=======
+    type: QuestionType
+): Question {
+    return {};
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -30,12 +36,16 @@ export function makeBlankQuestion(
  * HINT: Look up the `trim` and `toLowerCase` functions.
  */
 export function isCorrect(question: Question, answer: string): boolean {
+<<<<<<< HEAD
     const expec = question.expected.trim().toLowerCase();
     if (expec === answer.trim().toLowerCase()) {
         return true;
     } else {
         return false;
     }
+=======
+    return false;
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -45,12 +55,16 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
+<<<<<<< HEAD
     /*
     const opt = question.options.filter((questions: string): boolean =>
         questions.trim().toLowerCase().includes(answer.trim().toLowerCase()),
     );
     */
     return question.options.includes(answer.toString());
+=======
+    return false;
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -60,7 +74,11 @@ export function isValid(question: Question, answer: string): boolean {
  * name "My First Question" would become "9: My First Q".
  */
 export function toShortForm(question: Question): string {
+<<<<<<< HEAD
     return question.id + ": " + question.name.substring(0, 10);
+=======
+    return "";
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -81,6 +99,7 @@ export function toShortForm(question: Question): string {
  * Check the unit tests for more examples of what this looks like!
  */
 export function toMarkdown(question: Question): string {
+<<<<<<< HEAD
     return (
         "# " +
         question.name +
@@ -89,6 +108,9 @@ export function toMarkdown(question: Question): string {
         (question.options.length === 0 ? "" : "\n- ") +
         question.options.join("\n- ")
     );
+=======
+    return "";
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -96,7 +118,10 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
+<<<<<<< HEAD
     question.name = newName;
+=======
+>>>>>>> upstream/task-nested
     return question;
 }
 
@@ -106,7 +131,10 @@ export function renameQuestion(question: Question, newName: string): Question {
  * published; if it was published, now it should be not published.
  */
 export function publishQuestion(question: Question): Question {
+<<<<<<< HEAD
     question.published = !question.published;
+=======
+>>>>>>> upstream/task-nested
     return question;
 }
 
@@ -117,6 +145,7 @@ export function publishQuestion(question: Question): Question {
  * The `published` field should be reset to false.
  */
 export function duplicateQuestion(id: number, oldQuestion: Question): Question {
+<<<<<<< HEAD
     const newQuestion = {
         ...oldQuestion,
         name: "Copy of " + oldQuestion.name,
@@ -124,6 +153,9 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
         published: false,
     };
     return newQuestion;
+=======
+    return oldQuestion;
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -134,11 +166,15 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
+<<<<<<< HEAD
     const newQuestion = {
         ...question,
         Option: [...question.options, newOption],
     };
     return newQuestion;
+=======
+    return question;
+>>>>>>> upstream/task-nested
 }
 
 /**
@@ -153,6 +189,7 @@ export function mergeQuestion(
     id: number,
     name: string,
     contentQuestion: Question,
+<<<<<<< HEAD
     { points }: { points: number },
 ): Question {
     return {
@@ -165,4 +202,9 @@ export function mergeQuestion(
         name: name,
         id: id,
     };
+=======
+    { points }: { points: number }
+): Question {
+    return contentQuestion;
+>>>>>>> upstream/task-nested
 }
