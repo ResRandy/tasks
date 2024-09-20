@@ -149,11 +149,11 @@ export function publishAll(questions: Question[]): Question[] {
  */
 export function sameType(questions: Question[]): boolean {
     //const first = questions.find((que:Question): string => que.type !== "");
-
-    //const fin = questions.filter(
-    //    (ques: Question): Boolean => ques.type ===,
-    //);
-    return false /*fin.length === questions.length*/;
+    const first = questions[0].type;
+    const fin = questions.filter(
+        (ques: Question): Boolean => ques.type === first,
+    );
+    return fin.length === questions.length;
 }
 
 /***
