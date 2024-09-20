@@ -1,3 +1,4 @@
+import { stringify } from "querystring";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 import { duplicateQuestion, makeBlankQuestion } from "./objects";
@@ -20,8 +21,8 @@ export function getNonEmptyQuestions(questions: Question[]): Question[] {
     const fin = questions.filter(
         (que: Question): Boolean =>
             !(
-                que.body.length === 0 ||
-                que.expected.length === 0 ||
+                que.body.length === 0 &&
+                que.expected.length === 0 &&
                 que.options.length === 0
             ),
     );
@@ -77,7 +78,7 @@ export function sumPoints(questions: Question[]): number {
  */
 export function sumPublishedPoints(questions: Question[]): number {
     const fin = questions.reduce(
-        (sum: number, que: Question) => sum + (que.published ? 1 : 0),
+        (sum: number, que: Question) => sum + (que.published ? que.points : 0),
         0,
     );
     return fin;
@@ -101,21 +102,19 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
-    const list = questions
-        .map(
-            (que: Question): string =>
-                que.id.toString +
-                "," +
-                que.name +
-                "," +
-                que.options.length.toString +
-                "," +
-                que.points.toString +
-                "," +
-                que.published,
-        )
-        .join("\n");
-    return "id,name,options,points,published\n" + list;
+    const list = questions.map(
+        (que: Question): string =>
+            que.id +
+            "," +
+            que.name +
+            "," +
+            que.options.length +
+            "," +
+            que.points +
+            "," +
+            que.published,
+    );
+    return "id,name,options,points,published\n" + list.join("\n");
 }
 
 /**
@@ -138,7 +137,7 @@ export function makeAnswers(questions: Question[]): Answer[] {
 
 /***
  * Consumes an array of Questions and produces a new array of questions, where
- * each question is now published, regardless of its previous published status.
+ * each question is now published, rgardless of its previous published status.
  */
 export function publishAll(questions: Question[]): Question[] {
     const finish = questions.map(
@@ -152,9 +151,10 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
+    //const first = questions.find((que:Question): string => que.type !== "");
     const first = questions[0].type;
     const fin = questions.filter(
-        (que: Question): Boolean => que.type === first,
+        (ques: Question): Boolean => ques.type === first,
     );
     return fin.length === questions.length;
 }

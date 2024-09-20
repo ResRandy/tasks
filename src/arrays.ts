@@ -49,7 +49,7 @@ export const removeDollars = (amounts: string[]): number[] => {
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
     let hans: string[] = messages.filter(
-        (messages: string): boolean => !messages.includes("?"),
+        (message: string): boolean => !message.includes("?"),
     );
     let ans: string[] = hans.map((hans: string): string =>
         hans.includes("!") ? hans.toUpperCase() : hans,
