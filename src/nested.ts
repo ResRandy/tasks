@@ -1,4 +1,3 @@
-import { stringify } from "querystring";
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
 import { duplicateQuestion, makeBlankQuestion } from "./objects";
@@ -154,7 +153,7 @@ export function sameType(questions: Question[]): boolean {
     //const fin = questions.filter(
     //    (ques: Question): Boolean => ques.type ===,
     //);
-    return fin.length === questions.length;
+    return false /*fin.length === questions.length*/;
 }
 
 /***
