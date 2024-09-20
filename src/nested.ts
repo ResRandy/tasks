@@ -123,15 +123,13 @@ export function toCSV(questions: Question[]): string {
  * making the `text` an empty string, and using false for both `submitted` and `correct`.
  */
 export function makeAnswers(questions: Question[]): Answer[] {
-    const start = getNonEmptyQuestions(questions);
-    const fin = start.map(
-        (que: Question): Answer => ({
-            questionId: que.id,
-            text: "",
-            submitted: false,
-            correct: false,
-        }),
-    );
+    //const start = getNonEmptyQuestions(questions);
+    const fin = questions.map((que: Question) => ({
+        questionId: que.id,
+        text: "",
+        submitted: false,
+        correct: false,
+    }));
     return fin;
 }
 
@@ -152,10 +150,10 @@ export function publishAll(questions: Question[]): Question[] {
  */
 export function sameType(questions: Question[]): boolean {
     //const first = questions.find((que:Question): string => que.type !== "");
-    const first = questions[0].type;
-    const fin = questions.filter(
-        (ques: Question): Boolean => ques.type === first,
-    );
+
+    //const fin = questions.filter(
+    //    (ques: Question): Boolean => ques.type ===,
+    //);
     return fin.length === questions.length;
 }
 
