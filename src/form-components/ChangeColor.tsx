@@ -30,11 +30,12 @@ export function ChangeColor(): React.JSX.Element {
                     checked={color === col}
                     style={{ backgroundColor: col }}
                     label={col}
-                    id="colored-box"
                 />
             ))}
             {"\n You have chosen "}{" "}
-            <span style={{ backgroundColor: color }}>{color}</span>
+            <span id="colored-box" style={{ backgroundColor: color }}>
+                {color}
+            </span>
             {"."}
         </div>
     );
