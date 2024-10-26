@@ -6,11 +6,11 @@ import { StartAttempt } from "./components/StartAttempt";
 import { TwoDice } from "./components/TwoDice";
 import { CycleHoliday } from "./components/CycleHoliday";
 import { Counter } from "./components/Counter";
-/*import { DoubleHalf } from "./bad-components/DoubleHalf";*/
-
-/*import { ColoredBox } from "./bad-components/ColoredBox";
-import { ShoveBox } from "./bad-components/ShoveBox";
-import { ChooseTeam } from "./bad-components/ChooseTeam";*/
+// import { DoubleHalf } from "./bad-components/DoubleHalf";
+// import { numDhValue } from "./bad-components/DoubleHalfState";
+// import { ColoredBox } from "./bad-components/ColoredBox";
+// import { ShoveBox } from "./bad-components/ShoveBox";
+// import { ChooseTeam } from "./bad-components/ChooseTeam";
 import { CheckAnswer } from "./form-components/CheckAnswer";
 import { GiveAttempts } from "./form-components/GiveAttempts";
 import { EditMode } from "./form-components/EditMode";
@@ -37,13 +37,19 @@ function App(): React.JSX.Element {
                 expectedAnswer="b"
             ></MultipleChoiceQuestion>
             <hr></hr>
-            {/* <DoubleHalf></DoubleHalf> */}
+            {/* <DoubleHalf
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                setDhValue={function (_newDhValue: number): void {
+                    throw new Error("Function not implemented.");
+                }}
+                value={0}
+            ></DoubleHalf> */}
             <hr></hr>
-            {/*<ChooseTeam></ChooseTeam>*/}
+            {/* <ChooseTeam></ChooseTeam> */}
             <hr></hr>
-            {/*<ColoredBox></ColoredBox>*/}
+            {/* <ColoredBox></ColoredBox> */}
             <hr></hr>
-            {/*<ShoveBox></ShoveBox>*/}
+            {/* <ShoveBox></ShoveBox> */}
             <hr></hr>
             <Counter></Counter>
             <hr />

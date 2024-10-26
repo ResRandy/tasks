@@ -10,29 +10,27 @@ const PEOPLE = [
     "Margaret Hamilton",
 ];
 
-export function ChooseTeam(): React.JSX.Element {
+export function ChooseTeam(newMember: string): React.JSX.Element {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [allOptions, setAllOptions] = useState<string[]>(PEOPLE);
     const [team, setTeam] = useState<string[]>([]);
 
     function chooseMember() {
-        /*
         if (!team.includes(newMember)) {
             team.push(newMember);
         }
-        */
-       const isThere = team.filter((people: String): boolean => people === ());
-       if(isThere.length === 0){
-        const newTeam = [...team, ];
-        setTeam(newTeam)
-       }
+        const isThere = team.filter(
+            (people: String): boolean => people === newMember,
+        );
+        if (isThere.length === 0) {
+            const newTeam = [...team, newMember];
+            setTeam(newTeam);
+        }
     }
 
     function clearTeam() {
         const newTeam: string[] = [];
         setTeam(newTeam);
-        /*
-        team = [];
-        */
     }
 
     return (

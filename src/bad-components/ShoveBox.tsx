@@ -1,17 +1,19 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import React, { useState } from "react";
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { Button } from "react-bootstrap";
 
-function ShoveBoxButton({
-    position,
-    setPosition,
-}: {
+interface pos {
     position: number;
     setPosition: (newPosition: number) => void;
-}) {
+}
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function ShoveBoxButton(num: pos) {
     return (
         <Button
             onClick={() => {
-                setPosition(4 + position);
+                num.setPosition(4 + num.position);
             }}
         >
             Shove the Box
@@ -19,8 +21,8 @@ function ShoveBoxButton({
     );
 }
 
-function MoveableBox(): React.JSX.Element {
-    const [position, setPosition] = useState<number>(10);
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function MoveableBox(num: pos): React.JSX.Element {
     return (
         <div
             data-testid="moveable-box"
@@ -31,26 +33,26 @@ function MoveableBox(): React.JSX.Element {
                 border: "1px solid blue",
                 display: "inline-block",
                 verticalAlign: "bottom",
-                marginLeft: position + "px",
+                marginLeft: num.position + "px",
             }}
         ></div>
     );
 }
 
 export function ShoveBox(): React.JSX.Element {
-    const box = MoveableBox();
+    // const box = MoveableBox();
 
     return (
         <div>
             <h3>Shove Box</h3>
-            {/* <span>The box is at: {box.position}</span>
+            {/* <span>The box is at: {box.position}</span> */}
             <div>
-                <ShoveBoxButton
+                {/* <ShoveBoxButton
                     position={box.position}
                     setPosition={box.setPosition}
                 ></ShoveBoxButton>
-                {box}
-            </div> */}
+                {box}-- */}
+            </div>
         </div>
     );
 }
