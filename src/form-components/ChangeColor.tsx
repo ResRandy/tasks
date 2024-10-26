@@ -33,7 +33,11 @@ export function ChangeColor(): React.JSX.Element {
                 />
             ))}
             {"\n You have chosen "}{" "}
-            <span id="colored-box" style={{ backgroundColor: color }}>
+            <span
+                id="colored-box"
+                data-testid="colored-box"
+                style={{ backgroundColor: color }}
+            >
                 {color}
             </span>
             {"."}
